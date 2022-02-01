@@ -9,17 +9,9 @@ interface EmployeeDao {
     @Query("select * from employee")
     fun findAllEmployee() : List<Employee>
 
-    //Buscar todos los departamentos
-    //@Query("select * from department")
-    //fun findAllDepertment() : List<Department>
-
     //Buscar por empleado por id
     @Query("select * from employee where Employee.Id = :employeeId")
     fun findByIdEmployee(employeeId : Int) : List<Employee>
-
-    //Buscar departameto por id
-    // @Query("select * from department where Department.id = :departmentId limit 1")
-    //fun findByIdDepartment(departmentId : Int) : List<Department>
 
     //Insertar empleado
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -29,3 +21,11 @@ interface EmployeeDao {
     @Delete
     fun deleteEmployee(employee: Employee)
 }
+
+//Buscar todos los departamentos
+//@Query("select * from department")
+//fun findAllDepertment() : List<Department>
+
+//Buscar departameto por id
+// @Query("select * from department where Department.id = :departmentId limit 1")
+//fun findByIdDepartment(departmentId : Int) : List<Department>
