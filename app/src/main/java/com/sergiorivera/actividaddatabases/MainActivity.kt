@@ -1,12 +1,12 @@
 package com.sergiorivera.actividaddatabases
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.sergiorivera.actividaddatabases.databinding.ActivityMainBinding
-import com.sergiorivera.actividaddatabases.databinding.ItemEmployeeBinding
 import com.sergiorivera.actividaddatabases.db.AppDataBase
 import com.sergiorivera.actividaddatabases.db.Employee
 import java.util.*
@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvEmployee.layoutManager = LinearLayoutManager(this)
         binding.rvEmployee.adapter = adapter
+
 
         db = Room.databaseBuilder(
             applicationContext,
@@ -39,22 +40,24 @@ class MainActivity : AppCompatActivity() {
         adapter.submitList(employees)
 
         binding.btnAdd.setOnClickListener{
-            addUser()
+            addEmployee()
         }
     }
 
 
-    private fun addUser() {
+    private fun addEmployee() {
         val employeeName = binding.etName.text.toString()
         val lastName = binding.etLastName.text.toString()
         val newEmployee = Employee(employeeName, lastName, 67, "C/falsa 123")
         db.employeeDao().addEmployee(newEmployee)
 
-        refreshUsers()
+        refreshEmployee()
     }
 
-    private fun refreshUsers(){
-        val users = db.employeeDao().findAllEmployee()
-        adapter.submitList(users)
+    private fun refreshEmployee(){
+        val employees = db.employeeDao().findAllEmployee()
+        adapter.submitList(employees)
     }
+
+
 }
