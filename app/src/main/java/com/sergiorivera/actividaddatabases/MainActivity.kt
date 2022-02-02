@@ -1,6 +1,5 @@
 package com.sergiorivera.actividaddatabases
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -32,11 +31,11 @@ class MainActivity : AppCompatActivity() {
             .allowMainThreadQueries()
             .build()
 
-        val din = Date().time
+        /*val din = Date().time
         db.employeeDao().addEmployee(Employee("empleado #$din", "apellido #$din", 34, "I+D"))
-        val employees = db.employeeDao().findAllEmployee()
-        Log.d("Empleados","Empleados: $employees")
+        Log.d("Empleados","Empleados: $employees")*/
 
+        val employees = db.employeeDao().findAllEmployee()
         adapter.submitList(employees)
 
         binding.btnAdd.setOnClickListener{
@@ -48,7 +47,9 @@ class MainActivity : AppCompatActivity() {
     private fun addEmployee() {
         val employeeName = binding.etName.text.toString()
         val lastName = binding.etLastName.text.toString()
-        val newEmployee = Employee(employeeName, lastName, 67, "C/falsa 123")
+        val age = binding.etAge.text.toString()
+        val department = binding.etDepartment.text.toString()
+        val newEmployee = Employee(employeeName, lastName, age, department)
         db.employeeDao().addEmployee(newEmployee)
 
         refreshEmployee()

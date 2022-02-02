@@ -20,12 +20,13 @@ interface EmployeeDao {
     //Eliminar usuario
     @Delete
     fun deleteEmployee(employee: Employee)
+
+    //Buscar todos los departamentos
+   /* @Query("select * from department")
+    fun findAllDepertment() : List<Department>
+
+    //Buscar departameto por id
+    @Query("select * from department where Department.id = :departmentId limit 1")
+    fun findByIdDepartment(departmentId : Int) : List<Department>*/
 }
 
-//Buscar todos los departamentos
-//@Query("select * from department")
-//fun findAllDepertment() : List<Department>
-
-//Buscar departameto por id
-// @Query("select * from department where Department.id = :departmentId limit 1")
-//fun findByIdDepartment(departmentId : Int) : List<Department>
