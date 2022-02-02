@@ -9,9 +9,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sergiorivera.actividaddatabases.databinding.ItemEmployeeBinding
 import com.sergiorivera.actividaddatabases.db.Employee
+import com.sergiorivera.actividaddatabases.db.EmployeeDao
 import java.util.*
 
-class EmployeeAdapter : ListAdapter<Employee, EmployeeAdapter.ViewHolder>(EmployeeDiffUtils()){
+class EmployeeAdapter(
+    private val onItemClick: (Employee) -> Unit,
+    private val deleteEmployeeClick : (Employee) -> Unit
+) : ListAdapter<Employee, EmployeeAdapter.ViewHolder>(EmployeeDiffUtils()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -27,8 +31,11 @@ class EmployeeAdapter : ListAdapter<Employee, EmployeeAdapter.ViewHolder>(Employ
         holder.binding.tvAge.text = employee.age.toString()
         holder.binding.tvDepartment.text = employee.department
         holder.binding.ivIcon.setColorFilter(getRandomColor())
+        holder.binding.btnDelete.setOnClickListener {deleteEmployeeClick(employee)}
     }
-    fun getRandomColor(): Int {
+
+
+    private fun getRandomColor(): Int {
         val rnd = Random()
         return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
     }

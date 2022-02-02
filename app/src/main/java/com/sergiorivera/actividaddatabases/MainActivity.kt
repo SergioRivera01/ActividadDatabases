@@ -2,6 +2,7 @@ package com.sergiorivera.actividaddatabases
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
@@ -13,7 +14,13 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var db : AppDataBase
-    private val adapter = EmployeeAdapter()
+    private val adapter = EmployeeAdapter({
+        Toast.makeText(this,"employee: $it", Toast.LENGTH_SHORT).show()
+    },{
+        db.employeeDao().deleteEmployee(it)
+        refreshEmployee()
+    }
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
