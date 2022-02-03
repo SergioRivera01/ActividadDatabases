@@ -20,7 +20,7 @@ data class Employee (
     val id: Int? = null
 )
 
-/*@Entity(tableName = "department")
+@Entity(tableName = "department")
 data class Department(
     @ColumnInfo(name = "name")
     val name : String,
@@ -28,4 +28,4 @@ data class Department(
     val description : String,
     @PrimaryKey(autoGenerate = true)
     val id : Int? = null
-)*/
+)

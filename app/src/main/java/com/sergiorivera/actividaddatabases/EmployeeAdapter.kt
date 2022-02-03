@@ -40,6 +40,8 @@ class EmployeeAdapter(
         return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
     }
 
+
+
     inner class ViewHolder (val binding: ItemEmployeeBinding) : RecyclerView.ViewHolder(binding.root)
 
 }

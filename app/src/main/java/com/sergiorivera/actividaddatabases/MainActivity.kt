@@ -1,5 +1,6 @@
 package com.sergiorivera.actividaddatabases
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -48,6 +49,11 @@ class MainActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener{
             addEmployee()
         }
+
+        binding.btnIrDepartments.setOnClickListener {
+            startActivity(Intent(this, DepartmentActivity::class.java))
+        }
+
     }
 
 

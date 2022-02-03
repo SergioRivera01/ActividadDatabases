@@ -7,7 +7,7 @@
     app:cardCornerRadius="10dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
-     >
+    >
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -67,80 +67,32 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/sairacondensedbold"
-                android:text="Apellidos:"
+                android:text="Descripcion"
                 android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_LastName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_name"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
-                android:layout_toEndOf="@+id/tv_label_description"
-                android:fontFamily="@font/sairacondensedregular"
-                android:text="lastName"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/tv_label_edad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_label_description"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/sairacondensedbold"
-                android:text="Edad:"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_age"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_label_description"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="14dp"
-                android:layout_toEndOf="@+id/tv_label_edad"
-                android:fontFamily="@font/sairacondensedregular"
-                android:text="age"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/tv_label_department"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_label_edad"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/sairacondensedbold"
-                android:text="Departamento: "
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_department"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_label_edad"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginBottom="16dp"
-                android:layout_toEndOf="@+id/tv_label_department"
-                android:fontFamily="@font/sairacondensedregular"
-                android:text="department"
-                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_department"
+                android:layout_below="@+id/iv_icon"
                 android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="0dp"
                 android:backgroundTint="#FF0000"
                 android:text="Borrar" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/tv_label_description"
+                android:fontFamily="@font/sairacondensedregular"
+                android:text="description"
+                android:textSize="20sp" />
 
         </RelativeLayout>
     </LinearLayout>
