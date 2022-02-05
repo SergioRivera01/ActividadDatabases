@@ -14,7 +14,8 @@ import java.util.*
 
 class EmployeeAdapter(
     private val onItemClick: (Employee) -> Unit,
-    private val deleteEmployeeClick : (Employee) -> Unit
+    private val deleteEmployeeClick : (Employee) -> Unit,
+   // private val editEmployeeClick : (String) -> Unit
 ) : ListAdapter<Employee, EmployeeAdapter.ViewHolder>(EmployeeDiffUtils()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,6 +33,7 @@ class EmployeeAdapter(
         holder.binding.tvDepartment.text = employee.department
         holder.binding.ivIcon.setColorFilter(getRandomColor())
         holder.binding.btnDelete.setOnClickListener {deleteEmployeeClick(employee)}
+       // holder.binding.btnEdit.setOnClickListener {editEmployeeClick(String())}
     }
 
 

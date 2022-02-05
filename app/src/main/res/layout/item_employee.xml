@@ -135,12 +135,22 @@
                 android:id="@+id/btn_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_department"
+                android:layout_below="@+id/btnEdit"
                 android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="0dp"
                 android:backgroundTint="#FF0000"
                 android:text="Borrar" />
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_icon"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Editar" />
 
         </RelativeLayout>
     </LinearLayout>

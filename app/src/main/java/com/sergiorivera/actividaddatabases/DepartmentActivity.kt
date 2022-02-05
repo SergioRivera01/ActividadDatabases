@@ -41,12 +41,19 @@ class DepartmentActivity : AppCompatActivity() {
         refreshDepartment()
 
         binding.btnAdd.setOnClickListener{
-            addDepartment()
+           // addDepartment()
+            getRelation()
         }
 
         binding.btnAtras.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+    }
+
+    private fun getRelation(){
+        val nameDepartment = binding.etNameDepartment.text.toString()
+        db.employeeDao().getDepartmentWithEmployee(nameDepartment)
+        refreshDepartment()
     }
 
     private fun addDepartment() {

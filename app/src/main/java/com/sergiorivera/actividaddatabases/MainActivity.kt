@@ -2,7 +2,6 @@ package com.sergiorivera.actividaddatabases
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,7 +9,6 @@ import androidx.room.Room
 import com.sergiorivera.actividaddatabases.databinding.ActivityMainBinding
 import com.sergiorivera.actividaddatabases.db.AppDataBase
 import com.sergiorivera.actividaddatabases.db.Employee
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -20,7 +18,10 @@ class MainActivity : AppCompatActivity() {
     },{
         db.employeeDao().deleteEmployee(it)
         refreshEmployee()
-    }
+    }/*,{
+        db.employeeDao().editEmployee(it)
+        refreshEmployee()
+    }*/
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

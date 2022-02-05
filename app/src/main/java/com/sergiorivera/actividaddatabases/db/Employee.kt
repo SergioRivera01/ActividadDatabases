@@ -29,3 +29,4 @@ data class Department(
     @PrimaryKey(autoGenerate = true)
     val id : Int? = null
 )
+

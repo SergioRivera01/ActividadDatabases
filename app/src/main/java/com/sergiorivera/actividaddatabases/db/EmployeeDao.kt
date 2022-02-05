@@ -1,6 +1,7 @@
 package com.sergiorivera.actividaddatabases.db
 
 import androidx.room.*
+import com.sergiorivera.actividaddatabases.db.relations.EmployeeAndDepartment
 
 @Dao
 interface EmployeeDao {
@@ -25,6 +26,10 @@ interface EmployeeDao {
     @Delete
     fun deleteDepartment(department: Department)
 
+    //Editar
+  //  @Query("UPDATE Em SET name = :juegosName WHERE id = :juegosId")
+   // fun update2(juegosName: String, juegosId: Int)
+
     //Buscar todos los departamentos
     @Query("select * from department")
     fun findAllDepertment() : List<Department>
@@ -32,5 +37,10 @@ interface EmployeeDao {
     //Buscar departameto por id
     @Query("select * from department where Department.id = :departmentId limit 1")
     fun findByIdDepartment(departmentId : Int) : List<Department>
+
+    //Relacion
+    @Transaction
+    @Query("select * from  department where name = :name")
+    fun getDepartmentWithEmployee(name : String) : List<EmployeeAndDepartment>
 }
 
