@@ -9,6 +9,7 @@ import androidx.room.Room
 import com.sergiorivera.actividaddatabases.databinding.ActivityMainBinding
 import com.sergiorivera.actividaddatabases.db.AppDataBase
 import com.sergiorivera.actividaddatabases.db.Employee
+import com.sergiorivera.actividaddatabases.db.DatabaseSingleton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -40,11 +41,13 @@ class MainActivity : AppCompatActivity() {
             .allowMainThreadQueries()
             .build()
 
+
         /*val din = Date().time
         db.employeeDao().addEmployee(Employee("empleado #$din", "apellido #$din", 34, "I+D"))
         Log.d("Empleados","Empleados: $employees")*/
 
-        val employees = db.employeeDao().findAllEmployee()
+       val employees = DatabaseSingleton.getDatabase(this).employeeDao().findAllEmployee()
+       // val employees = db.employeeDao().findAllEmployee()
         adapter.submitList(employees)
 
         binding.btnAdd.setOnClickListener{
@@ -65,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         val department = binding.etDepartment.text.toString()
         val newEmployee = Employee(employeeName, lastName, age, department)
         db.employeeDao().addEmployee(newEmployee)
+
 
         refreshEmployee()
     }

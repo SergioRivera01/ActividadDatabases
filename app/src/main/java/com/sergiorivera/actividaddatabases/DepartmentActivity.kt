@@ -41,8 +41,8 @@ class DepartmentActivity : AppCompatActivity() {
         refreshDepartment()
 
         binding.btnAdd.setOnClickListener{
-           // addDepartment()
-            getRelation()
+           addDepartment()
+           getRelation()
         }
 
         binding.btnAtras.setOnClickListener {
